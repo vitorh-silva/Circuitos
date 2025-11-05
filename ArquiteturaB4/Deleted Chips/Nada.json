@@ -1,0 +1,60 @@
+{
+  "DLSVersion": "2.1.6",
+  "Name": "Nada",
+  "NameLocation": 2,
+  "ChipType": 0,
+  "Size": {
+    "x": 0.725,
+    "y": 0.375
+  },
+  "Colour": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1
+  },
+  "InputPins":[
+    {
+      "Name":"Entrada",
+      "ID":1795860788,
+      "Position":{
+        "x":-4.55587,
+        "y":-1.62061
+      },
+      "BitCount":1,
+      "Colour":0,
+      "ValueDisplayMode":0
+    }
+  ],
+  "OutputPins":[
+    {
+      "Name":"Saida",
+      "ID":1462621444,
+      "Position":{
+        "x":-1.0,
+        "y":0.0
+      },
+      "BitCount":1,
+      "Colour":0,
+      "ValueDisplayMode":0
+    }
+  ],
+  "SubChips":[],
+  "Wires":[
+    {
+      "SourcePinAddress":{
+        "PinID":0,
+        "PinOwnerID":1795860788
+      },
+      "TargetPinAddress":{
+        "PinID":0,
+        "PinOwnerID":1462621444
+      },
+      "ConnectionType":0,
+      "ConnectedWireIndex":-1,
+      "ConnectedWireSegmentIndex":-1,
+      "Points":[{"x":0.0,"y":0.0},{"x":0.0,"y":0.0}]
+    }
+  ],
+  "Displays":[]
+}

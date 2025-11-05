@@ -23,4 +23,27 @@ O circuito realiza a operação aritmética A + B + Cin.
 1.  **Splitters:** Dois componentes Splitter são usados nas entradas A e B para desmembrar o barramento de 4 bits em quatro linhas de 1 bit.
 2.  **Ligação dos Full Adders:** Quatro Full Adders são conectados em série, onde as 4 saídas geradas no splitter de A e B são ligadas ao respectivo input de cada full adder.
 3.  **Ligação do Carry:** O primeiro a ser ligado é o Cin no primeiro Full Adder. Na sequência, o Carry Out de cada Full Adder é conectado ao Carry In do Full Adder seguinte até finalizar no Output Carry Out.
-4.  **Ligação da Soma:** Um terceiro Splitter é usado na saída para agrupar as quatro saídas individuais de 1 bit de soma de cada Full Adder em um único barramento de 4 bits, gerando o output de soma.
+4.  **Ligação da Soma:** Um terceiro Splitter é usado na saída para agrupar as quatro saídas individuais de 1 bit de soma de cada Full Adder em um único barramento de 4 bits, gerando o output de soma.  
+## Half-Subtractor
+
+### Entradas
+
+| Nome | Bits | Descrição |
+| :--- | :--- | :--- |
+| **A** | 1 | O Minuendo (o primeiro bit a ser subtraído). |
+| **B** | 1 | O Subtraendo (o segundo bit). |
+
+### Saídas
+
+| Nome | Bits | Descrição |
+| :--- | :--- | :--- |
+| **Diferença (D)** | 1 | O resultado da subtração binária. |
+| **Borrow Out** | 1 | O Empréstimo de saída. Indica que um empréstimo foi necessário. |
+
+### Explicação
+
+O circuito realiza a operação aritmética A - B para dois bits de entrada e é construído com portas lógicas básicas.
+
+1.  **Porta XOR (Diferença):** Uma porta XOR é usada para gerar a saída de Diferença.
+    
+2.  **Portas NOT e AND (Borrow Out):** Uma porta NOT (inversor) é usada na entrada A, e seu resultado é ligado a uma porta AND junto com a entrada B.
