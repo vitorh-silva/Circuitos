@@ -47,3 +47,24 @@ O circuito realiza a operação aritmética A - B para dois bits de entrada e é
 1.  **Porta XOR (Diferença):** Uma porta XOR é usada para gerar a saída de Diferença.
     
 2.  **Portas NOT e AND (Borrow Out):** Uma porta NOT (inversor) é usada na entrada A, e seu resultado é ligado a uma porta AND junto com a entrada B.
+## Full-Subtractor
+
+### Entradas
+
+| Nome | Bits | Descrição |
+| :--- | :--- | :--- |
+| **A** | 1 | O Minuendo, bit a ser subtraído. |
+| **B** | 1 | O Subtraendo, bit sendo subtraído. |
+| **Bi** | 1 | O Borrow In, Empréstimo de Entrada. |
+
+### Saídas
+
+| Nome | Bits | Descrição | |
+| :--- | :--- | :--- | :--- |
+| **DIFF** | 1 | O resultado da subtração |
+| **Borrow Out** | 1 | Indica se um novo empréstimo foi necessário. |
+
+### Explicação
+
+O Full Subtractor é um circuito que realiza a operação de subtração em três bits (A - B - Bi), permitindo a propagação do Borrow entre posições de bits, essencial para subtrações multi-bit. O circuito é construído usando dois Half Subtractors e uma porta OR.
+
