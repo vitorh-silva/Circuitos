@@ -3,7 +3,7 @@
   "DLSVersion_LastSaved": "2.1.6",
   "DLSVersion_EarliestCompatible": "2.0.0",
   "CreationTime": "2025-10-07T20:08:24.784-03:00",
-  "LastSaveTime": "2025-11-11T20:14:36.140-03:00",
+  "LastSaveTime": "2025-11-18T21:46:03.547-03:00",
   "Prefs_MainPinNamesDisplayMode": 0,
   "Prefs_ChipPinNamesDisplayMode": 2,
   "Prefs_GridDisplayMode": 0,
@@ -23,7 +23,10 @@
     "Full-Adder",
     "4-Bit Adder",
     "Half Subtractor",
-    "Full Subtractor"
+    "Full Subtractor",
+    "3 AND",
+    "3 OR",
+    "MUX 4-1"
   ],
   "StarredList":[
     {
@@ -80,16 +83,16 @@
     },
     {
       "Chips":["BUZZER"],
-      "IsToggledOpen":false,
+      "IsToggledOpen":true,
       "Name":"OTHER"
     },
     {
-      "Chips":["Not","AND","NAND","OR","NOR","XOR","XNOR"],
+      "Chips":["3 OR","3 AND","Not","AND","NAND","OR","NOR","XOR","XNOR"],
       "IsToggledOpen":false,
       "Name":"BasicGates"
     },
     {
-      "Chips":["Full Subtractor","Half Subtractor","4-Bit Adder","Full-Adder","Half-Adder"],
+      "Chips":["MUX 4-1","Full Subtractor","Half Subtractor","4-Bit Adder","Full-Adder","Half-Adder"],
       "IsToggledOpen":true,
       "Name":"ComplexGates"
     }
