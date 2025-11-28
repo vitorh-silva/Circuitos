@@ -22,70 +22,133 @@ O 4-bit-Adder é um circuito combinacional digital projetado para executar a adi
 O que faz: Ele calcula a soma A + B + Carry in, onde A e B são vetores de 4 bits, produzindo um resultado de soma de 4 bits e um bit de carry final.
 
 Como ele faz: O circuito é construído pela cascata de quatro Full-Adders.
-1.  O bit menos significativo, A_0 e B_0, é somado no primeiro FA, com Cin como seu *carry-in*.
-2.  O C_out de cada Full-Adder é conectado como o C_in do Full-Adder subsequente de ordem superior.
-3.  O resultado S é formado pelos bits de soma S_3, S_2, S_1, S_0. O C_out do último estágio é o *carry* final do circuito.
+1. O bit menos significativo, A_0 e B_0, é somado no primeiro FA, com Cin como seu *carry-in*.
+2. O C\_out de cada Full-Adder é conectado como o C_in do Full-Adder subsequente de ordem superior.
+3. O resultado S é formado pelos bits de soma S_3, S_2, S_1, S_0. O C_out do último estágio é o *carry* final do circuito.
 
-### Half-Adder
+---
 
-| Sinal | Entradas | Saídas |
-| :--- | :--- | :--- |
-| **Entradas** | A, B | - |
-| **Saídas** | S, Carry | - |
-| **Explicação** | O Half-Adder é o circuito mais simples de adição. Ele soma dois bits de entrada e produz um bit de Soma e um bit de Carry. |
+## Half-Adder
 
-### Full-Adder 
-
-| Sinal | Entradas | Saídas |
-| :--- | :--- | :--- |
-| **Entradas** | A, B, C_in | - |
-| **Saídas** | S, C_out | - |
-| **Explicação** | O Full-Adder é capaz de adicionar três bits de entrada: dois bits de dados A e B e um C_in de uma etapa anterior. Ele produz o bit de Soma e um bit de C_out. |
-
-### Half-Subtractor
-
-| Sinal | Entradas | Saídas |
-| :--- | :--- | :--- |
-| **Entradas** | Minuendo, Subtraendo | - |
-| **Saídas** | Diff, Borrow | - |
-| **Explicação** | O Half-Subtractor realiza a subtração de dois bits de entrada: Minuendo (M) e Subtraendo (S). Ele produz um bit de Diff (D) e um bit de Borrow. |
-
-### Full-Subtractor
-
-| Sinal | Entradas | Saídas |
-| :--- | :--- | :--- |
-| **Entradas** | Minunendo, Subtraendo, Borrow in | - |
-| **Saídas** | Diff, Borrow out. | - |
-| **Explicação** | O Full-Subtractor realiza a subtração de três bits de entrada: Minuendo (M), Subtraendo (S) e um Borrow In de uma etapa anterior. Ele produz um bit de Diferença (D) e um bit de Borrow Out. |
-
-## Unidade Lógica Aritmética (ULA)
 ### Entradas:
 
-| Sinal | Bits | Descrição |
-| :--- | :--- | :--- |
-| **A** | 4 bits | Primeiro operando de dados principal. |
-| **B** | 4 bits | Segundo operando de dados principal. |
-| **B0, B1, B2** | 1 bit cada | Bits de seleção de controle (Opcode) para o **Demux 3-8**. Estes bits determinam a operação. |
-| **C_in** | 1 bit | Vai-um de entrada para o 4-Bit-Adder, usado em operações aritméticas. |
-| **I_1** | 1 bit | Bit de controle auxiliar, usado para selecionar entre o operando B e $\bar{B}$ (Not B) no Mux 2-1. |
+| Sinal | Descrição |
+| :--- | :--- |
+| **A** | Primeiro bit de dados. |
+| **B** | Segundo bit de dados. |
 
 ### Saídas:
-| Sinal | Bits | Descrição |
-| :--- | :--- | :--- |
-| **Out** | 4 bits | O Resultado final da operação selecionada. |
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **S** | O resultado da Soma. |
+| **Carry** | O Vai-um gerado. |
 
 ### Explicação:
+
+O Half-Adder é o circuito mais simples de adição. Ele soma dois bits de entrada e produz um bit de Soma e um bit de Carry.
+
+---
+
+## Full-Adder
+
+### Entradas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **A** | Primeiro bit de dados. |
+| **B** | Segundo bit de dados. |
+| **C\_in** | O Carry-in de uma etapa anterior. |
+
+### Saídas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **S** | O resultado da Soma dos três bits. |
+| **C\_out** | O Carry-out para a próxima etapa. |
+
+### Explicação:
+
+O Full-Adder é capaz de adicionar três bits de entrada: dois bits de dados A e B e um C\_in de uma etapa anterior. Ele produz o bit de Soma e um bit de C\_out.
+
+---
+
+## Half-Subtractor
+
+### Entradas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **Minuendo (M)** | O bit do qual se subtrai. |
+| **Subtraendo (S)** | O bit a ser subtraído. |
+
+### Saídas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **Diff (D)** | O resultado da Diferença. |
+| **Borrow (B)** | O bit de Empréstimo gerado. |
+
+### Explicação:
+
+O Half-Subtractor realiza a subtração de dois bits de entrada: Minuendo (M) e Subtraendo (S). Ele produz um bit de Diff (D) e um bit de Borrow.
+
+---
+
+## Full-Subtractor
+
+### Entradas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **Minuendo (M)** | O bit do qual se subtrai. |
+| **Subtraendo (S)** | O bit a ser subtraído. |
+| **Borrow in** | O Borrow In de uma etapa anterior. |
+
+### Saídas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **Diff (D)** | O resultado da Diferença dos três bits. |
+| **Borrow out** | O Borrow Out para a próxima etapa. |
+
+### Explicação:
+
+O Full-Subtractor realiza a subtração de três bits de entrada: Minuendo (M), Subtraendo (S) e um Borrow In de uma etapa anterior. Ele produz um bit de Diferença (D) e um bit de Borrow Out.
+
+---
+
+## Unidade Lógica Aritmética (ULA)
+
+### Entradas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **A** | Primeiro operando de dados principal (4 bits). |
+| **B** | Segundo operando de dados principal (4 bits). |
+| **B0, B1, B2** | Bits de seleção de controle (Opcode) para o **Demux 3-8**. Estes bits determinam a operação. |
+| **$C_in** | Vai-um de entrada para o 4-Bit-Adder, usado em operações aritméticas. |
+| **I_1** | Bit de controle auxiliar, usado para selecionar entre o operando B e $\bar{B}$ (Not B) no Mux 2-1. |
+
+### Saídas:
+
+| Sinal | Descrição |
+| :--- | :--- |
+| **Out** | O Resultado final da operação selecionada (4 bits). |
+
+### Explicação:
+
 A Unidade Lógica Aritmética é um circuito combinacional de 4 bits projetado para executar diversas operações lógicas e aritméticas nos operandos A e B.
 
 O que faz: A ULA executa funções como Adição, Subtração, AND, OR, e XOR, com base nos bits de controle.
 
 Como ele faz:
-1.  Controle de Operação (Opcode): Os bits B0, B1, B2 controlam um Demux 3-8, que ativa um de seus 8 pinos de saída. Esses pinos atuam como sinais de habilitação para as portas de saída.
-2.  Operação Aritmética: O 4-Bit Adder está sempre realizando uma soma, mas seu segundo operando é controlado pelo **Mux 2-1**. O Mux 2-1, controlado pelo bit I_1, seleciona entre o operando B original ou o operando Not B.
-    * Com I_1 = 0 (selecionando B) e C_in=0, o circuito realiza a adiçã* A + B.
-    * Com I_1 = 1 (selecionando B) e C_in=1, o circuito realiza a subtração via complemento de dois A + B + 1).
-3.  Operações Lógicas: Portas 4-Bit And, 4-Bit OR, e 4-Bit XOR realizam as operações lógicas bit a bit.
-4.  Seleção de Saída: Todas as operações aritméticas e lógicas são realizadas simultaneamente. O resultado final é selecionado por uma estrutura de Multiplexação (MUX) distribuída:
+1. Controle de Operação (Opcode): Os bits B0, B1, B2 controlam um Demux 3-8, que ativa um de seus 8 pinos de saída. Esses pinos atuam como sinais de habilitação para as portas de saída.
+2. Operação Aritmética: O 4-Bit Adder está sempre realizando uma soma, mas seu segundo operando é controlado pelo **Mux 2-1**. O Mux 2-1, controlado pelo bit I\_1, seleciona entre o operando B original ou o operando Not B.
+    * Com I_1 = 0 (selecionando B) e C_in=0, o circuito realiza a adição A + B.
+    * Com I_1 = 1 (selecionando B) e C_in=1, o circuito realiza a subtração via complemento de dois A + B + 1.
+3. Operações Lógicas: Portas 4-Bit And, 4-Bit OR, e 4-Bit XOR realizam as operações lógicas bit a bit.
+4. Seleção de Saída: Todas as operações aritméticas e lógicas são realizadas simultaneamente. O resultado final é selecionado por uma estrutura de Multiplexação (MUX) distribuída:
     * As portas 4-Bit AND (portas de habilitação) na saída de cada bloco funcional usam os sinais do Demux 3-8 para permitir que apenas o resultado da operação desejada passe.
     * As portas 4-Bit OR finais combinam todas essas saídas habilitadas para produzir o resultado final de 4 bits na saída Out.
 ---
